@@ -20,9 +20,14 @@ module.exports = [
   {
     input: './src/MonitorScollBar.js',
     output: {
-      file: './dist/MonitorScollBar.js',
+      file: 'dist/MonitorScollBar.js',
       format: 'cjs',
-    }, 
+      exports: 'named',
+      sourcemap: true,
+      strict: false
+    },
+    files: ["dist"],
+    external: ['react', 'react-dom'],
     plugins: [
       postcss({extensions: ['.css']}),
       nodeResolve(),
@@ -34,10 +39,7 @@ module.exports = [
             '@babel/preset-react'
           ]
       }),
-      commonjs(),
-      replace({
-        'process.env.NODE_ENV': JSON.stringify( 'production' )
-      })
+      commonjs()
     ],
   },
 ]

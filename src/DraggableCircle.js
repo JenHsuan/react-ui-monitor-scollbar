@@ -1,7 +1,8 @@
 import React from 'react';
 import Draggable from 'react-draggable';
+import PropTypes from 'prop-types'
 
-const DraggableCircle = (color, callback) => {
+const DraggableCircle = ({color, callback}) => {
     const originX = 0;
     const destX = 100;
 
