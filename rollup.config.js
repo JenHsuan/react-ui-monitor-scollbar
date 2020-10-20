@@ -3,6 +3,7 @@ const { babel } = require('@rollup/plugin-babel');
 const commonjs = require('@rollup/plugin-commonjs');
 const replace = require('@rollup/plugin-replace');
 const { nodeResolve } = require('@rollup/plugin-node-resolve');
+import postcss from 'rollup-plugin-postcss';
 
 const resolveFile = function(filePath) {
   return path.join(__dirname, '..', filePath)
@@ -23,6 +24,7 @@ module.exports = [
       format: 'cjs',
     }, 
     plugins: [
+      postcss({extensions: ['.css']}),
       nodeResolve(),
       babel({
         exclude: 'node_modules/**',
